@@ -17,13 +17,13 @@ const userSchema = new Schema(
     thoughts: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Thought", // Ensure the reference matches the model name
+        ref: "Thought",
       },
     ],
     friends: [
       {
         type: Schema.Types.ObjectId,
-        ref: "User", // Ensure the reference matches the model name
+        ref: "User",
       },
     ],
   },

@@ -4,7 +4,7 @@ const Thought = require("../models/Thought");
 
 // Connect to MongoDB
 mongoose
-  .connect("mongodb://127.0.0.1:27017/yourDatabaseName", {
+  .connect("mongodb://127.0.0.1:27017/socialmediaDB", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
