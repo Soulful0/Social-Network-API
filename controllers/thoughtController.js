@@ -105,21 +105,24 @@ module.exports = {
   },
 
   async deleteThought(req, res) {
-    async deleteThought(req, res) {
-      try {
-          const { thoughtId } = req.params;
-          const thought = await Thought.findByIdAndDelete(thoughtId);
-  
-          if (!thought) {
-              return res.status(404).json({ message: "No thought found with this ID!" });
-          }
-  
-          res.json({ message: "Thought successfully deleted!" });
-      } catch (err) {
-          console.error(err);
-          res.status(500).json({ message: "Failed to delete thought due to an internal error." });
+    try {
+      const { thoughtId } = req.params;
+      const thought = await Thought.findByIdAndDelete(thoughtId);
+
+      if (!thought) {
+        return res
+          .status(404)
+          .json({ message: "No thought found with this ID!" });
       }
-  }
-  
+
+      res.json({ message: "Thought successfully deleted!" });
+    } catch (err) {
+      console.error(err);
+      res
+        .status(500)
+        .json({
+          message: "Failed to delete thought due to an internal error.",
+        });
+    }
   },
 };
