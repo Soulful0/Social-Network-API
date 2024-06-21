@@ -10,13 +10,12 @@ mongoose
   })
   .then(() => {
     console.log("Connected to MongoDB");
-    seedData(); // Call the seed function
+    seedData();
   })
   .catch((err) => {
     console.error("MongoDB connection error:", err);
   });
 
-// Define your seed data
 const users = [
   {
     username: "user1",
