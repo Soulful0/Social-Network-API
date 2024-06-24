@@ -13,10 +13,14 @@ module.exports = {
 
   async updateThought(req, res) {
     try {
-      const thought = await Thought.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-        runValidators: true,
-      });
+      const thought = await Thought.findByIdAndUpdate(
+        req.params.thoughtId,
+        req.body,
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
       if (!thought) {
         return res
           .status(404)
@@ -118,11 +122,9 @@ module.exports = {
       res.json({ message: "Thought successfully deleted!" });
     } catch (err) {
       console.error(err);
-      res
-        .status(500)
-        .json({
-          message: "Failed to delete thought due to an internal error.",
-        });
+      res.status(500).json({
+        message: "Failed to delete thought due to an internal error.",
+      });
     }
   },
 };
